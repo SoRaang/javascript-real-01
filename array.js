@@ -175,9 +175,23 @@ console.log(evenSales);
 
 // ------------------------------------------------------------------------------------------------------
 
+/** find() / findIndex() */
+
+let saleFind = carSales.find(sale => sale > 600);
+console.log(saleFind); // 배열에서 비교 조건식에 부합하는 첫 번째 요소의 값을 찾아 반환한다.
+
+let saleFind2 = carSales.findIndex(sale => sale > 600);
+console.log(saleFind2); // 배열에서 비교 조건식에 부합하는 첫 번째 요소의 인덱스를 찾아 반환한다.
+
+/**
+ * find() : 배열에서 비교 조건식에 부합하는 첫 번째 요소의 값을 찾아 반환한다.
+ * findIndex() : 배열에서 비교 조건식에 부합하는 첫 번째 요소의 인덱스를 찾아 반환한다.
+ */
+
 /** every() */
 
-let firstSaleSix = carSales.every();
+let firstSaleSix = carSales.every(sale => sale > 600);
+console.log(firstSaleSix); // 배열 내의 모든 값이 600 이상은 아니기 때문에 불일치하는 첫 번째 값에서 즉시 false를 반환한다.
 
 /**
  * 모든 배열 요소에 대한 조건 연산에서 true, false의 결과 반환
@@ -185,11 +199,17 @@ let firstSaleSix = carSales.every();
 
 /** some() */
 
+let anySaleSix = carSales.some(sale => sale > 600);
+console.log(anySaleSix); // 배열 내에 600 이상인 값이 하나 이상 존재하기 때문에 일치하는 첫 번째 값에서 즉시 true를 반환한다.
+
 /**
  * 모든 배열 요소에서 하나라도 참 또는 거짓을 반환하는 경우 결과 반환
  */
 
 /** reduce() */
+
+let sum4 = carSales.reduce((t1, t2) => t1 + t2, 0);
+console.log(sum4);
 
 /**
  * 더이상 배열 요소가 없을 때까지 함수를 반복하여 하나의 값을 반환
