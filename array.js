@@ -444,3 +444,121 @@ let clr = colors.shift();
 console.log(colors + '/' + clr);
 
 // ------------------------------------------------------------------------------------------------------
+
+/** 다차원 배열 */
+
+let outerArr = new Array(2);
+
+for(let i = 0; i < outerArr.length; i ++) {
+    outerArr[i] = new Array(3);
+}
+
+console.log('for 반복문을 이용해 배열 안에 배열 생성: ', outerArr);
+
+
+let outerArr2 = Array.from(new Array(2), () => new Array(3));
+console.log('Array.from(), new Array() 메소드를 이용해 배열 안에서 다시 배열 생성: ', outerArr2);
+
+/** 다차원 배열 내의 배열에 접근 */
+
+outerArr[0][0] = 1;
+outerArr[0][1] = 2;
+outerArr[0][2] = 3;
+outerArr[1][0] = 4;
+outerArr[1][1] = 5;
+outerArr[1][2] = 6;
+console.table('배열의 인덱스 / 배열 내부 배열의 인덱스로 요소에 접근: ', outerArr);
+
+for (let i = 0; i < outerArr.length; i ++) {
+    for (let j = 0; j < outerArr[i].length; j ++) {
+        console.log('중첩된 for 반복문을 이용해 배열 내부의 배열 요소에 접근: ', outerArr[i][j]);
+    }
+}
+
+/**
+ * 자바스크립트에서는 자체적으로 다차원 배열을 지원하지는 않는다.
+ * 대신 내포된 배열을 사용하여 다차원 배열을 생성할 수 있다.
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 3명 학생 4과목 성적의 합계와 평균 구하기 */
+
+const stuA = [83, 90, 70, 87];
+const stuB = [87, 93, 62, 83];
+const stuC = [98, 90, 77, 97];
+const stuScores = [stuA, stuB, stuC];
+
+for(let i = 0; i < stuScores.length; i ++) { // 다차원 배열일 경우의 답
+    let student = stuScores[i];
+    let sum = 0;
+
+    for(points of student) {
+        sum += points;
+    }
+
+    console.log(`${i}번 학생의 총점 ${sum}점 / 평균점수 ${sum / student.length}점`);
+}
+
+function getAvg(arr) { // 단순 배열일 경우의 답
+    let sum = 0;
+
+    for(pt of arr) {
+        sum += pt;
+    }
+
+    console.log(`총점 ${sum}점 / 평균점수 ${sum / arr.length}점`);
+}
+
+getAvg(stuA)
+getAvg(stuB)
+getAvg(stuC)
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 배열을 이용하여 성적의 합계와 평균 구하기 */
+
+const mathScores = [90, 85, 70, 86, 97];
+let mathTotal = mathScores.reduce((a, b) => a + b);
+let mathAvg = mathTotal / mathScores.length;
+
+console.log('총점', mathTotal, '평균점수', mathAvg);
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 0보다 작은 수 중에 가장 첫 번째 숫자를 결과로 나타내시오 */
+
+const tempNumbers = [7, -24, -8, 10, 17, -18];
+console.log(tempNumbers.find(n => n < 0)); // 원래의 순서에서 첫 번째
+
+let sortedNumbers = tempNumbers.sort((a, b) => a - b);
+console.log(sortedNumbers.find(n => n < 0)); // 오름차순 정렬 후 가장 작은 첫 번째
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 두 배열의 요소 값이 서로 같은 요소들로 새로운 배열을 생성하여 결과로 내시오 */
+
+const numbsA = [12, 0, 2, 5, 4];
+const numbsB = [0, 2, 3, 12, 8];
+
+let newNumbs = numbsA.filter(it => numbsB.includes(it)); // A 배열의 각 요소를 B 배열이 포함하고 있는지를 체크하여 true이면 반환한다.
+console.log(newNumbs);
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 배열을 이용하여 실행 결과 10, 30, 50을 내시오 */
+
+const numbers2 = [1, 3, 5];
+console.log(numbers2.map(n => n * 10));
+
+// ------------------------------------------------------------------------------------------------------
