@@ -114,8 +114,6 @@ for(let i of list) {
  * for ... in 루프는 순서 없이 객체의 모든 열거 가능한 속성을 반복한다.
  */
 
-// ------------------------------------------------------------------------------------------------------
-
 const car = {
     maker: 'BMW',
     color: 'red',
@@ -125,3 +123,74 @@ const car = {
 for(let prop in car) {
     console.log(prop); // 객체 내의 키를 반환한다.
 }
+
+// for(let prop of car) { // for ... of 를 일반 객체에 사용할 경우, iterable이 아니므로 오류가 출력된다.
+//     console.log(prop);
+// }
+
+// ------------------------------------------------------------------------------------------------------
+
+/** forEach() */
+
+let sum3 = 0;
+
+carSales.forEach(sale => { sum3 += sale });
+
+let average3 = sum3 / carSales.length;
+console.log(average3);
+
+carSales.forEach((sale, index, array) => { array[index] = sale + 50 }); // 여기서 매개 변수로 사용된 index, array는 배열의 기본 변수이다. MDN 참조.
+console.log(carSales);
+
+/**
+ * 배열에서 각 요소를 순회하면서 함수를 호출하여 각 요소를 다룬다.
+ * 새로운 배열을 반환하지 않는다.
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** map() */
+
+let newCarSales = carSales.map(sale => sale + 50);
+console.log(newCarSales);
+console.log(carSales); // map() 메소드에 의해서는 기존 배열은 바뀌지 않는다.
+
+/**
+ * 배열에서 각 요소를 순회하면서 함수를 호출, 새로운 배열을 생성하여 반환한다.
+ * forEach() 와는 새로운 배열이 생성되는 것이 다르다.
+ */
+
+/** filter() */
+
+let highSales = carSales.filter(sale => sale > 500); // 비교 조건식에 의해 500 이상의 요소만 새로운 배열로 반환된다.
+console.log(highSales);
+
+/**
+ * 배열에서 각 요소를 순회하면서 함수를 호출, 새로운 배열을 생성하여 반환한다.
+ * forEach() 와는 새로운 배열이 생성되는 것이 다르다.
+ */
+
+let evenSales = carSales.filter((sale, index) => index % 2 === 1); // index 값에 따라 짝수 월의 값만 새로운 배열로 반환된다.
+console.log(evenSales);
+
+// ------------------------------------------------------------------------------------------------------
+
+/** every() */
+
+let firstSaleSix = carSales.every();
+
+/**
+ * 모든 배열 요소에 대한 조건 연산에서 true, false의 결과 반환
+ */
+
+/** some() */
+
+/**
+ * 모든 배열 요소에서 하나라도 참 또는 거짓을 반환하는 경우 결과 반환
+ */
+
+/** reduce() */
+
+/**
+ * 더이상 배열 요소가 없을 때까지 함수를 반복하여 하나의 값을 반환
+ */
