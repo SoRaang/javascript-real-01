@@ -209,10 +209,10 @@ console.log('some() 메소드를 통해 반환된 참/거짓: ', anySaleSix); //
 /** reduce() */
 
 let sum4 = carSales.reduce((t1, t2) => t1 + t2, 0); // (이전까지의 누적값, 현재 값, array) => 조건식, 초기 값. MDN 참조.
-console.log(sum4); // 배열 내의 모든 값을 조건식에 따라 덧셈한 값을 반환한다.
+console.log('reduce() 메소드를 이용한 전체 값 누적 더하기: ', sum4); // 배열 내의 모든 값을 조건식에 따라 덧셈한 값을 반환한다.
 
 let highest = carSales.reduce((t1, t2) => { return t1 > t2 ? t1 : t2 });
-console.log('reduce()', highest);
+console.log('reduce() 메소드를 이용한 비교 누적으로 가장 높은 값 찾기: ', highest);
 
 /**
  * 더이상 배열 요소가 없을 때까지 함수를 반복하여 하나의 값을 반환
@@ -223,7 +223,7 @@ console.log('reduce()', highest);
 /** flat() */
 
 let flat = [1, [2, 3]].flat();
-console.log(flat);
+console.log('flat() 메소드를 이용해 배열 평탄화: ', flat);
 
 /**
  * 배열 요소에 다른 배열을 포함하고 있을 때, 배열을 풀어준다.
@@ -234,7 +234,7 @@ console.log(flat);
 
 let message = ['오늘은', '비가 옵니다'];
 let words = message.flatMap(msg => msg.split(''));
-console.log(words);
+console.log('flatMap() 메소드의 조건식을 이용해 두 문자열을 split() 한 후 평탄화: ', words);
 
 /**
  * 배열의 각 요소에 주어진 콜백 함수를 적용한 다음, 그 결과를 한 단계씩 평탄화하여 새 배열로 반환
@@ -247,13 +247,13 @@ console.log(words);
 const array1 = ['a', 'b', 'c'];
 const array2 = ['d', 'e', 'f'];
 const array3 = array1.concat(array2);
-console.log(array3);
+console.log('concat() 메소드로 두 배열 합치기: ', array3);
 
 let original = [1, 2, 3];
 let newArray;
 newArray = original.concat(4, 5);
 newArray = original.concat([4, 5], [6, 7]);
-console.log(newArray);
+console.log('concat() 메소드로 여러 배열 합치기: ', newArray);
 
 /**
  * 두 개 이상의 배열을 병합하는 데 사용
@@ -311,20 +311,21 @@ const numbers = [20, 37, -21, 32, -2];
 /** slice(), splice() */
 
 let listA = [1, 2, 3, 4, 5];
-let listB = listA.slice(0, 2);
-console.log(listB);
-console.log(listA);
+let listB = listA.slice(0, 2); // listA 배열의 0번 인덱스로부터 2개의 요소를 서브 배열인 listB로 반환한다.
+console.log('slice(): ', listB);
+console.log('slice() 메소드의 대상인 원래 배열: ', listA); // listA를 slice() 하여도 서브 배열이 반환되므로 기존 배열은 변하지 않는다.
 
 let listC = listA.slice(1, -1);
-console.log(listC);
+console.log('slice(1, -1): ', listC);
 
-// listA.splice(0, 2) // 0번 인덱스부터 2개의 아이템을 삭제
-// listA.splice(2) // 2번 인덱스 이후의 아이템을 모두 삭제
-// listA.splice(0, 2, 10, 20); // 0번 인덱스로부터 2개의 아이템을 제거하고, 10과 20을 요소로 추가
-console.log(listA);
+// listA.splice(0, 2) // 0번 인덱스부터 2개의 아이템을 삭제한다.
+// listA.splice(2) // 2번 인덱스 이후의 아이템을 모두 삭제한다.
+listA.splice(0, 2, 10, 20, 30); // 0번 인덱스로부터 2개의 아이템을 제거하고, 10과 20, 30을 시작 인덱스부터 요소로 추가한다.
+console.log('splice(0, 2, 10, 20, 30): ', listA);
 
 /**
- * slice()
+ * slice() : 배열을 잘라서 분할된 서브 배열을 반환, 원래 배열을 변경하지 않음
+ * splice() : 배열을 잘라서 분할된 서브 배열을 반환, 원래 배열을 변화시킴
  */
 
 // ------------------------------------------------------------------------------------------------------
@@ -333,13 +334,13 @@ console.log(listA);
 
 let fillList = new Array(5);
 fillList.fill(0); // 배열 전체를 0으로 채우기
-console.log(fillList);
+console.log('fill(0): ', fillList);
 
 fillList.fill(1, 1); // 배열의 1번 인덱스부터를 1로 채우기
-console.log(fillList);
+console.log('fill(1, 1): ', fillList);
 
 fillList.fill(2, 2, -1); // 배열의 2번 인덱스부터 끝에서 -1번 인덱스까지를 2로 채우기
-console.log(fillList);
+console.log('fill(2, 2, -1): ', fillList);
 
 /**
  * 배열을 첫 번째 인수로 지정된 값으로 채움
@@ -369,7 +370,7 @@ console.log(notExist);
 
 let incList = [0, true, 2, false, NaN];
 let isThere = incList.includes(NaN);
-console.log(isThere);
+console.log('includes(): ', isThere);
 
 /**
  * 인수에 지정된 값이 배열에 포함되어 있으면 true, 아니면 false 반환
@@ -379,14 +380,14 @@ console.log(isThere);
 
 let srtList = ['durian', 'apple', 'carrot', 'peach', 'banana'];
 let isSort = srtList.sort();
-console.log(isSort);
+console.log('문자열에 sort() 메소드 사용: ', isSort);
 
 let numList = [22, 33, 121];
 let numSort = numList.sort(); // 그냥 사용할 경우 숫자는 크기대로 정렬이 되지 않고, 문자 순서대로 정렬이 된다.
-console.log(numSort);
+console.log('숫자에 sort() 메소드를 그냥 사용: ', numSort);
 
 let correctSort = numList.sort((a, b) => a - b); // 비교 조건식을 통해 숫자를 크기별로 오름차순 정렬한다.
-console.log(correctSort);
+console.log('숫자에 sort() 메소드를 조건식과 함께 사용: ', correctSort);
 
 /**
  * 배열을 정리할 때 사용, 기본적으로 알파벳 순으로 정렬
@@ -399,10 +400,47 @@ console.log(correctSort);
 
 let joinList = [1, 2, 3];
 let joinedStr = joinList.join(''); // (결합시 구분에 사용할 문자. 빈 값이면 쉼표 사용)
-console.log(joinedStr);
+console.log('join(): ', joinedStr);
 
 /**
  * 배열의 모든 요소를 문자열로 변환하여 결합한 문자열을 반환
  */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** scores 배열의 각 요소 값을 for 와 for ... of 문을 이용하여 출력하시오. */
+
+const scores = [67, 82, 97, 100, 92]
+
+for(let i = 0; i < scores.length; i ++) {
+    console.log(scores[i]);
+}
+
+for(let i of scores) {
+    console.log(i);
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** tel 배열을 문자열 010-1234-5678로 반환하시오. */
+
+const tel = ['010', '1234', '5678'];
+
+console.log(tel.join('-'));
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** colors 배열을 메소드를 이용하여 노랑, 파랑, 주황 / 빨강의 실행 결과를 내시오. */
+
+const colors = ['빨강', '노랑', '파랑', '주황'];
+
+let clr = colors.shift();
+console.log(colors + '/' + clr);
 
 // ------------------------------------------------------------------------------------------------------
