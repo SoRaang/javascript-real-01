@@ -50,7 +50,7 @@ let a = [1, 2, 3, 4, 5];
 let len = a.length;
 
 a.length = 0;
-console.log(a);
+console.log('배열의 길이를 0으로 만들어 삭제: ', a);
 
 /**
  * 배열의 길이를 알 수 있는 .length 는, a.length = 0; 식으로 사용하여 배열에서 요소를 삭제할 수도 있다.
@@ -62,7 +62,7 @@ console.log(a);
 
 let jan, fab, mar, rest;
 
-[jan, fab, mar, ... rest] = carSales;
+[jan, fab, mar, ... rest] = carSales; // 배열에 순서대로 변수를 지정한다. 확산 연산자를 통해 나머지 길이를 새로운 배열로 지정한다.
 
 console.log(jan, fab, mar);
 console.log(rest);
@@ -208,9 +208,104 @@ console.log(anySaleSix); // 배열 내에 600 이상인 값이 하나 이상 존
 
 /** reduce() */
 
-let sum4 = carSales.reduce((t1, t2) => t1 + t2, 0);
-console.log(sum4);
+let sum4 = carSales.reduce((t1, t2) => t1 + t2, 0); // (이전까지의 누적값, 현재 값, array) => 조건식, 초기 값. MDN 참조.
+console.log(sum4); // 배열 내의 모든 값을 조건식에 따라 덧셈한 값을 반환한다.
+
+let highest = carSales.reduce((t1, t2) => { return t1 > t2 ? t1 : t2 });
+console.log(highest);
 
 /**
  * 더이상 배열 요소가 없을 때까지 함수를 반복하여 하나의 값을 반환
  */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** flat() */
+
+let flat = [1, [2, 3]].flat();
+console.log(flat);
+
+/**
+ * 배열 요소에 다른 배열을 포함하고 있을 때, 배열을 풀어준다.
+ * 단, 포함된 배열이 또다른 배열을 포함하고 있을 경우에는 풀어주지 못한다.
+ */
+
+/** flatMap() */
+
+let message = ['오늘은', '비가 옵니다'];
+let words = message.flatMap(msg => msg.split(''));
+console.log(words);
+
+/**
+ * 배열의 각 요소에 주어진 콜백 함수를 적용한 다음, 그 결과를 한 단계씩 평탄화하여 새 배열로 반환
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** concat() */
+
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+console.log(array3);
+
+let original = [1, 2, 3];
+let newArray;
+newArray = original.concat(4, 5);
+newArray = original.concat([4, 5], [6, 7]);
+console.log(newArray);
+
+/**
+ * 두 개 이상의 배열을 병합하는 데 사용
+ * 기존 배열을 변경하지 않고, 새 배열을 반환
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** push(), pop() */
+
+let stack = [];
+stack.push(1);
+stack.push(2, 3);
+console.log('push(): ', stack);
+
+stack.pop();
+console.log('pop(): ', stack);
+
+stack.push(4);
+console.log('pop() 이후에 다시 push(): ', stack);
+
+/**
+ * push() : 배열의 끝에 요소를 추가
+ * pop() : 배열의 끝에 있는 요소를 꺼내와 반환하고, 해당 요소를 배열에서 삭제
+ */
+
+/** unshift(), shift() */
+
+stack.unshift(1);
+stack.unshift(2, 3);
+console.log('unshift(): ', stack);
+
+stack.shift();
+console.log('shift(): ', stack);
+
+/**
+ * unshift() : 배열의 처음에 요소를 추가
+ * shift() : 배열의 처음에 있는 요소를 꺼내와 삭제
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** 배열 numbers 에서 document.write 를 이용하여 37, 32를 결과값으로 나오게 작성 */
+
+const numbers = [20, 37, -21, 32, -2];
+
+document.write(`${numbers[1]}, ${numbers[3]}`); // 기본 답변
+
+document.write(numbers.filter(a => { return a > 30 })); // 내 답변
+
+// ------------------------------------------------------------------------------------------------------
+
+/** slice(), splice() */
