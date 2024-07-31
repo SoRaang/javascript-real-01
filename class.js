@@ -167,6 +167,10 @@ class Vehicle {
         this.name = name;
         this.wheel = wheel;
     }
+
+    callSpecs() {
+        return `${this.name} - ${this.wheel}`;
+    }
 }
 
 const myVehicle = new Vehicle('BMW', 4);
@@ -176,6 +180,10 @@ class Bicycle extends Vehicle { // Vehicle의 자식 클래스
     constructor(name, wheel) {
         super(name, wheel);
     }
+
+    callSpecs() {
+        return super.callSpecs(); // super 키워드로 부모 클래스의 메소드 호출
+    }
 }
 
 class Car extends Vehicle { // 부모 클래스인 Vehicle에 없는 프로퍼티 지정
@@ -183,10 +191,41 @@ class Car extends Vehicle { // 부모 클래스인 Vehicle에 없는 프로퍼�
         super(name, wheel);
         this.license = license;
     }
+
+    callSpecs() {
+        return super.callSpecs() + ` / ${this.license}`; // 부모 클래스의 메소드에 자신의 프로퍼티도 추가
+    }
 }
 
 const myBycycle = new Bicycle('붕붕이', 2);
 console.log(myBycycle);
+console.log(myBycycle.callSpecs());
 
 const myCar = new Car('두돈반', 8, true);
 console.log(myCar)
+console.log(myCar.callSpecs());
+
+/**
+ * super 키워드는 함수처럼 호출할 수 있고, this와 같이 식별자처럼 참조할 수 있다.
+ * 메소드 내에서 super를 참조하면, 부모 클래스의 메소드를 호출할 수 있다.
+ */
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** Book 이라는 생성자 함수를 만들고 Prototype을 이용하여 프로퍼티를 추가하시오. (title, author, price) / 생성할 Prototype 예 : 출판일, 페이지 수 */
+
+function Book(title, author, price) {
+    this.title = title,
+    this.author = author,
+    this.price = price
+}
+
+Book.prototype = {
+    releaseDate: 2019,
+    pages: 600
+}
+
+const myBook = new Book('이펙티브 타입스크립트', '댄 벤더캄', 24000);
+console.log(myBook);
