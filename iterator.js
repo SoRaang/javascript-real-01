@@ -151,3 +151,22 @@ for(let n of evenNumbs) {
 }
 
 // ------------------------------------------------------------------------------------------------------
+
+/** flat() 메소드처럼 여러 개의 순회할 수 있는 객체를 펼쳐서 각 요소를 순차적으로 생성하는 제네레이터 함수 */
+
+function* generateIterables( ... iterables ) {
+    for(let iterable of iterables) {
+        for(let item of iterable) {
+            yield item;
+        }
+    }
+}
+
+/** for 문을 중첩하여 사용하는 대신 yield* 형태의 제네레이터 함수로 사용할 수 있다. */
+
+console.log('중첩된 객체 펼치기')
+
+let generator = generateIterables('abc', [1, 2, 3]);
+let genArr = [ ... generator ];
+
+console.log(genArr);
