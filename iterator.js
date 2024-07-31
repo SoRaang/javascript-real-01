@@ -156,17 +156,15 @@ for(let n of evenNumbs) {
 
 function* generateIterables( ... iterables ) {
     for(let iterable of iterables) {
-        for(let item of iterable) {
+        for(let item of iterable) { // 이 부분을 중첩해서 사용하지 않고, yield* 형태의 제네레이터 함수로도 사용할 수 있다. (yield* iterable;)
             yield item;
         }
     }
 }
 
-/** for 문을 중첩하여 사용하는 대신 yield* 형태의 제네레이터 함수로 사용할 수 있다. */
-
 console.log('중첩된 객체 펼치기')
 
-let generator = generateIterables('abc', [1, 2, 3]);
+let generator = generateIterables('abc', [1, 2, 3]); // 'abc', [1, 2, 3]이 각각의 순회 가능 객체로 들어가고 (iterable of iterables), 또다시 내부에서 각각의 객체로 펼쳐진다. (item of iterables)
 let genArr = [ ... generator ];
 
 console.log(genArr);
