@@ -67,6 +67,7 @@
                 <li>
                     <label class="label-line" for="usrID">아이디</label>
                     <input type="text" name="user-name" id="usrID" maxlength="15" placeholder="4~15자리의 영문 및 숫자" required>
+                    <span id="idChecker"></span>
                 </li>
 
                 <li>
@@ -77,20 +78,22 @@
                 <li>
                     <label class="label-line" for="usrPW">비밀번호</label>
                     <input type="password" name="user-password" id="usrPW" minlength="8" maxlength="16" placeholder="8~16자리의 영문 대소문자 및 숫자, 특수문자" required>
+                    <span id="pwChecker"></span>
                 </li>
 
                 <li>
                     <label class="label-line" for="usrPWfirm">비밀번호 확인</label>
                     <input type="password" name="user-password-confirm" id="usrPWfirm" minlength="8" maxlength="16" placeholder="동일한 비밀번호 입력" required>
+                    <span id="pwChecker2"></span>
                 </li>
 
                 <li>
                     <p class="label-line">메일링 수신</p>
                     <div class="radio-container">
-                        <input type="radio" name="user-mailing" id="rdoMailTrue" checked>
+                        <input type="radio" name="user-mailing" id="rdoMailTrue" value="yes" checked>
                         <label for="rdoMailTrue">예</label>
 
-                        <input type="radio" name="user-mailing" id="rdoMailFalse">
+                        <input type="radio" name="user-mailing" id="rdoMailFalse" value="no">
                         <label for="rdoMailFalse">아니오</label>
                     </div>
                 </li>
