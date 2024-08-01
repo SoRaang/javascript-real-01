@@ -20,3 +20,17 @@ chkSame.addEventListener('change', (e) => {
         txtShipAddr.value = '';
     }
 });
+
+// ------------------------------------------------------------------------------------------------------
+
+const usrID = document.getElementById('usrID');
+const usrMail = document.getElementById('usrMail');
+const usrPW = document.getElementById('usrPW');
+const usrPWfirm = document.getElementById('usrPWfirm');
+const rdoMailing = document.getElementsByName('user-mailing');
+const btnConfirm = document.getElementById('btnConfirm');
+const btnCancel = document.getElementById('btnCancel');
+
+function errorChecker(e) {
+
+}
