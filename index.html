@@ -5,14 +5,103 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
 
-        <!-- <script type="text/javascript" src="./array.js"></script> -->
-        <!-- <script type="text/javascript" src="./map_set.js"></script> -->
-        <!-- <script type="text/javascript" src="./iterator.js"></script> -->
+        <!-- <script type="text/javascript" src="./array.js" defer></script> -->
+        <!-- <script type="text/javascript" src="./map_set.js" defer></script> -->
+        <!-- <script type="text/javascript" src="./iterator.js" defer></script> -->
         <!-- <script type="text/javascript" src="./promise.js" defer></script> -->
-        <script type="text/javascript" src="./class.js" defer></script>
+        <!-- <script type="text/javascript" src="./class.js" defer></script> -->
+        <script type="text/javascript" src="./dom.js" defer></script>
+        <script type="text/javascript" src="./form.js" defer></script>
+
+        <style>
+            #myBox {
+                background-color: cornflowerblue;
+            }
+
+            #myBox.active {
+                background-color: aquamarine;
+            }
+
+            #listAnimals {
+                & .active {
+                    color: red !important;
+                }
+            }
+
+            #movingBox {
+                width: 100px;
+                height: 100px;
+                background-color: slateblue;
+            }
+
+            #teleportBox {
+                width: 100px;
+                height: 100px;
+                background-color: plum;
+            }
+        </style>
     </head>
 
     <body>
+        <div id="myDiv">
+            프로그래머스 프론트엔드
+            <p>선수 조건: 없음</p>
+        </div>
 
+        <button type="button" id="btnClick" onclick="changeContent()">변경</button> <!-- attribute 형식으로 이벤트 핸들러 지정 -->
+
+        <ul id="listFruits">
+            <li class="fruit apple">사과</li>
+            <li class="fruit banana">바나나</li>
+            <li class="fruit cherry">체리</li>
+        </ul>
+
+        <ul id="listAutoOrder">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div id="myBox" style="width: 200px; height: 200px;"></div>
+
+        <button id="btnDiv">btnDiv</button>
+        <button id="btnClear">btnClear</button>
+        <div id="resultDiv"></div>
+
+        <div>
+            <p>이 버튼을 <span class="labelClicked"></span>번 클릭하셨습니다.</p>
+            <button id="btnCount">Click</button>
+            <button id="btnStop">Stop Counting</button>
+        </div>
+
+        <div id="checkPoint"></div>
+
+        <ul id="listAnimals">
+            <li id="lion">사자</li>
+            <li id="hippo">하마</li>
+            <li id="giraffe">기린</li>
+            <li id="tiger">호랑이</li>
+        </ul>
+
+        <div id="movingBox">
+            나는 움직인다
+        </div>
+
+        <div id="teleportBox">
+            나는 순간이동한다
+        </div>
+
+        <form action="" id="frmInfo">
+            ID: <input type="email" id="inputID" name="id"><br />
+            비밀번호: <input type="password" id="inputPW" name="password">
+        </form>
+
+        <button id="btnInfo">확인</button>
+        <button id="btnConfirm">입력</button>
+
+        <p id="userInfo"></p>
     </body>
 </html>

@@ -229,3 +229,53 @@ Book.prototype = {
 
 const myBook = new Book('이펙티브 타입스크립트', '댄 벤더캄', 24000);
 console.log(myBook);
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** Person 이라는 클래스를 만들고 "안녕하세요. 제 이름은 {이름}이고 나이는 {나이}살입니다" 라는 문자열을 반환하시오. */
+
+class Human {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    call() {
+        console.log(`안녕하세요. 제 이름은 ${this.name}이고, 나이는 ${this.age}살 입니다.`);
+    }
+}
+
+const jane = new Human('Jane', 12);
+jane.call();
+
+// ------------------------------------------------------------------------------------------------------
+
+/** 중간 문제 */
+
+/** Calculator 라는 클래스 또는 생성자 함수를 작성하고 정적 메소드를 추가하여 숫자를 더하고 빼는 기능을 구현하시오 */
+
+class Calculator {
+    static add(a, b) {
+        return a + b;
+    }
+
+    static sub(a, b) {
+        return a - b;
+    }
+}
+
+console.log(Calculator.add(2, 4));
+
+function Calculator2() {}
+
+Calculator2.add = function(a, b) {
+    return a + b;
+}
+
+Calculator2.sub = function(a, b) {
+    return a - b;
+}
+
+console.log(Calculator2.add(1, 2));
