@@ -1,0 +1,77 @@
+:root {
+    font-family: 'SUIT Variable', sans-serif;
+    font-size: 20px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+body {
+    font-size: .7rem;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+#frmUserInfo {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: 32rem;
+    height: fit-content;
+
+    & li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: .2rem;
+        height: 2.5rem;
+
+        & + & {
+            margin-block-start: 1rem;
+        }
+    }
+
+    & input {
+        flex: 1 1 0;
+        padding: 1rem .4rem;
+        border: 1px solid rgb(0 0 0 / .1);
+        border-radius: .3rem;
+    }
+}
+
+#headerForm {
+    margin-block-end: 2rem;
+    font-size: 2.2rem;
+    font-weight: 900;
+}
+
+.label-line {
+    display: block;
+    width: 8rem;
+    font-weight: 900;
+    text-align: end;
+}
+
+.button-container {
+    justify-content: center;
+    margin-block-start: 2rem;
+
+    & button {
+        flex: 1 1 0;
+        padding-block: 1rem;
+        border: 1px solid rgb(0 0 0 / .1);
+        font-weight: 900;
+        cursor: pointer;
+    }
+}

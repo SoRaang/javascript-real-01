@@ -5,103 +5,101 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
 
+        <link rel="stylesheet" href="./test-order-form.css">
         <!-- <script type="text/javascript" src="./array.js" defer></script> -->
         <!-- <script type="text/javascript" src="./map_set.js" defer></script> -->
         <!-- <script type="text/javascript" src="./iterator.js" defer></script> -->
         <!-- <script type="text/javascript" src="./promise.js" defer></script> -->
         <!-- <script type="text/javascript" src="./class.js" defer></script> -->
-        <script type="text/javascript" src="./dom.js" defer></script>
-        <script type="text/javascript" src="./form.js" defer></script>
-
-        <style>
-            #myBox {
-                background-color: cornflowerblue;
-            }
-
-            #myBox.active {
-                background-color: aquamarine;
-            }
-
-            #listAnimals {
-                & .active {
-                    color: red !important;
-                }
-            }
-
-            #movingBox {
-                width: 100px;
-                height: 100px;
-                background-color: slateblue;
-            }
-
-            #teleportBox {
-                width: 100px;
-                height: 100px;
-                background-color: plum;
-            }
-        </style>
+        <!-- <script type="text/javascript" src="./dom.js" defer></script> -->
+        <!-- <script type="text/javascript" src="./form.js" defer></script> -->
+        <script type="text/javascript" src="./test-order-form.js" defer></script>
     </head>
 
     <body>
-        <div id="myDiv">
-            프로그래머스 프론트엔드
-            <p>선수 조건: 없음</p>
-        </div>
+        <form id="frmOrder">
+            <ul>
+                <li>
+                    <input type="checkbox" id="chkSameAsShip" name="check-same">
+                    <label for="chkSameAsShip">배송지와 동일</label>
+                </li>
 
-        <button type="button" id="btnClick" onclick="changeContent()">변경</button> <!-- attribute 형식으로 이벤트 핸들러 지정 -->
+                <li>
+                    <label class="input-field" for="txtBillingName">이름:</label>
+                    <input type="text" name="billing-name" id="txtBillingName">
+                </li>
 
-        <ul id="listFruits">
-            <li class="fruit apple">사과</li>
-            <li class="fruit banana">바나나</li>
-            <li class="fruit cherry">체리</li>
-        </ul>
+                <li>
+                    <label class="input-field" for="txtBillingPhone">연락처:</label>
+                    <input type="text" name="billing-phone" id="txtBillingPhone">
+                </li>
 
-        <ul id="listAutoOrder">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-
-        <div id="myBox" style="width: 200px; height: 200px;"></div>
-
-        <button id="btnDiv">btnDiv</button>
-        <button id="btnClear">btnClear</button>
-        <div id="resultDiv"></div>
-
-        <div>
-            <p>이 버튼을 <span class="labelClicked"></span>번 클릭하셨습니다.</p>
-            <button id="btnCount">Click</button>
-            <button id="btnStop">Stop Counting</button>
-        </div>
-
-        <div id="checkPoint"></div>
-
-        <ul id="listAnimals">
-            <li id="lion">사자</li>
-            <li id="hippo">하마</li>
-            <li id="giraffe">기린</li>
-            <li id="tiger">호랑이</li>
-        </ul>
-
-        <div id="movingBox">
-            나는 움직인다
-        </div>
-
-        <div id="teleportBox">
-            나는 순간이동한다
-        </div>
-
-        <form action="" id="frmInfo">
-            ID: <input type="email" id="inputID" name="id"><br />
-            비밀번호: <input type="password" id="inputPW" name="password">
+                <li>
+                    <label class="input-field" for="txtBillingAddr">주소:</label>
+                    <input type="text" name="billing-address" id="txtBillingAddr">
+                </li>
+            </ul>
         </form>
 
-        <button id="btnInfo">확인</button>
-        <button id="btnConfirm">입력</button>
+        <form id="frmShipping">
+            <ul>
+                <li>
+                    <label class="input-field" for="txtShippingName">이름:</label>
+                    <input type="text" name="shipping-name" id="txtShippingName">
+                </li>
 
-        <p id="userInfo"></p>
+                <li>
+                    <label class="input-field" for="txtShippingPhone">연락처:</label>
+                    <input type="text" name="shipping-phone" id="txtShippingPhone">
+                </li>
+
+                <li>
+                    <label class="input-field" for="txtShippingAddr">주소:</label>
+                    <input type="text" name="shipping-address" id="txtShippingAddr">
+                </li>
+            </ul>
+        </form>
+
+        <form id="frmUserInfo">
+            <h1 id="headerForm">회원 가입</h1>
+
+            <ul>
+                <li>
+                    <label class="label-line" for="usrID">아이디</label>
+                    <input type="text" name="user-name" id="usrID" maxlength="15" placeholder="4~15자리의 영문 및 숫자" required>
+                </li>
+
+                <li>
+                    <label class="label-line" for="usrMail">이메일</label>
+                    <input type="email" name="user-email" id="usrMail" maxlength="30" placeholder="example@website.com" required>
+                </li>
+
+                <li>
+                    <label class="label-line" for="usrPW">비밀번호</label>
+                    <input type="password" name="user-password" id="usrPW" minlength="8" maxlength="16" placeholder="8~16자리의 영문 대소문자 및 숫자, 특수문자" required>
+                </li>
+
+                <li>
+                    <label class="label-line" for="usrPWfirm">비밀번호 확인</label>
+                    <input type="password" name="user-password-confirm" id="usrPWfirm" minlength="8" maxlength="16" placeholder="동일한 비밀번호 입력" required>
+                </li>
+
+                <li>
+                    <p class="label-line">메일링 수신</p>
+                    <div class="radio-container">
+                        <input type="radio" name="user-mailing" id="rdoMailTrue" checked>
+                        <label for="rdoMailTrue">예</label>
+
+                        <input type="radio" name="user-mailing" id="rdoMailFalse">
+                        <label for="rdoMailFalse">아니오</label>
+                    </div>
+                </li>
+
+                <li class="button-container">
+                    <button type="submit" id="btnConfirm">가입하기</button>
+                    <button type="reset" id="btnCancel">취소</button>
+                </li>
+            </ul>
+        </form>
     </body>
 </html>

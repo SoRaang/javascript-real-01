@@ -27,13 +27,13 @@ function checkValue() {
     }
 
     ['inputID', 'inputPW'].forEach(field => document.getElementById(field).value = '');
+
+    setTimeout(() => {
+        userInfo.innerHTMl = '';
+    }, 2000);
 }
 
 btnInfo.addEventListener('click', checkValue);
-
-setTimeout(() => {
-    userInfo.innerHTMl = '';
-}, 1500);
 
 /**
  * forms 프로퍼티를 통해 문서 내 모든 form 요소가 저장된 HTML Collection 객체를 반환한다.
